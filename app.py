@@ -22,8 +22,8 @@ embeddings=HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 st.title("Conversational Rag with PDF Upload and chat history")
 st.write("Upload pdf and chat with content")
 
-api_key=st.text_input("Enter your groq api key:",type="password")
-
+# api_key=st.text_input("Enter your groq api key:",type="password")
+api_key=os.getenv("GROQ_API_KEY")
 if api_key:
     llm=ChatGroq(groq_api_key=api_key,model_name="openai/gpt-oss-120b")
 
